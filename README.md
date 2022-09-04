@@ -26,6 +26,7 @@ Clonar o repositório para diretório remoto
 3. Cada cor representa uma ação dentro do programa. Lista de funcionamentos de cada cor:
    - Azul - Controla a movimentação do ponteiro de acordo com a posição do objeto na câmera;
    - Verde - Executa o clique do botão esquerdo do mouse;
+   - Amarelo - Executa o clique do botão direito do mouse;
    - Vermelho - Interrompe o processo de execução do programa.
 >
 4. Para fechar o programa, basta pressionar a tecla ESCAPE(ESC)
