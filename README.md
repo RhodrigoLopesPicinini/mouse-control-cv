@@ -30,5 +30,5 @@ Clonar o repositório para diretório remoto
 >
 4. Para fechar o programa, basta pressionar a tecla ESCAPE(ESC)
 
-### Desenvolvedor
+## Desenvolvedor
 Rhodrigo Lopes Picinini
