@@ -1,6 +1,6 @@
 # Controle de mouse utilizando Computer Vision
 ## Descrição
-Algoritmo criado para interagir com ações simples do mouse, através da câmera e objetos de cores: azul, verde e vermelho. Para o desenvolvimento foi utilizado a linguagem Python e as libraries: opencv, numpy e pyautogui.
+Algoritmo criado para interagir com ações simples do mouse, através da câmera e objetos de cores: azul, verde, amarelo e vermelho. Para o desenvolvimento foi utilizado a linguagem Python e as libraries: opencv, numpy e pyautogui.
 
 ## Libraries
 > - [OpenCV](https://github.com/opencv/opencv.git)
