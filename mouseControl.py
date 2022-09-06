@@ -1,6 +1,7 @@
 import cv2 as cv # importando opencv
 import numpy as np # importando numpy
 import pyautogui as gui # importando pyautogui
+
 gui.FAILSAFE = False # desabilitando o limite de borda da lib
 
 camera = cv.VideoCapture(0, cv.CAP_DSHOW)                           # captura de vídeo da câmera selecionada
@@ -28,18 +29,19 @@ while aberto:
     _, frame = camera.read()                                        # capturando o frame através do dispositivo de imagem
     hsv = cv.cvtColor(frame, cv.COLOR_BGR2HSV)                      # convertendo a cor do frame de rgb(bgr) para hsv
 
-    # captura da cor do objeto azul para movimentar o ponteiro do mouse
+    # captura da cor do objeto azul para movimentar o ponteiro
     lowerBlue = np.array([102, 74, 112])                            # cor hsv azul obtida
     upperBlue = np.array([130, 255, 255])                           # limite da cor hsv azul obtida
     maskBlue = cv.inRange(hsv, lowerBlue, upperBlue)                # cria a máscara para capturar somente a cor na imagem/video
 
-    # captura da cor do objeto verde para clicar com o ponteiro do mouse
+    # captura da cor do objeto verde para clicar com o botão esquerdo do mouse
     lowerGreen = np.array([51, 104, 160])                           # cor hsv verde obtida
     upperGreen = np.array([80, 255, 255])                           # limite da cor hsv verde obtida
     maskGreen = cv.inRange(hsv, lowerGreen, upperGreen)             # cria a máscara para capturar somente a cor na imagem/video
 
+    # captura da cor do objeto amarelo para clicar com o botão direito do mouse
     lowerYellow = np.array([17, 82, 130])                           # cor hsv amarela obtida
-    upperYellow = np.array([30, 255, 255])                           # limite da cor hsv amarelo obtida
+    upperYellow = np.array([30, 255, 255])                          # limite da cor hsv amarelo obtida
     maskYellow = cv.inRange(hsv, lowerYellow, upperYellow)          # cria a máscara para capturar somente a cor na imagem/video
 
     # captura da cor do objeto vermelho para fechar o programa
@@ -74,7 +76,7 @@ while aberto:
             print(x, y)                                             # coordenadas no terminal
             gui.moveTo(x, y)                                        # move o ponteiro do mouse para as coordenadas no monitor
 
-    # encontra os contornos do objeto com a cor específica para melhor identificação
+    # atualiza os contornos do objeto com a cor específica para melhor identificação
     contours, _ = cv.findContours(maskGreen, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
 
     # laço percorre o valor de contorno do objeto 
@@ -84,7 +86,7 @@ while aberto:
             x, y, w, h = cv.boundingRect(contour)                   # coordenadas do objeto
             gui.click(button='left')                                # clica no botão esquerdo do mouse
 
-    # encontra os contornos do objeto com a cor específica para melhor identificação
+    # atualiza os contornos do objeto com a cor específica para melhor identificação
     contours, _ = cv.findContours(maskYellow, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
 
     # laço percorre o valor de contorno do objeto 
@@ -94,7 +96,7 @@ while aberto:
             x, y, w, h = cv.boundingRect(contour)                   # coordenadas do objeto
             gui.click(button='right')                               # clica no botão direito do mouse
 
-    # encontra os contornos do objeto com a cor específica para melhor identificação
+    # atualiza os contornos do objeto com a cor específica para melhor identificação
     contours, _ = cv.findContours(maskRed, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
 
     # laço percorre o valor de contorno do objeto 
@@ -102,7 +104,7 @@ while aberto:
         area = cv.contourArea(contour)                              # área do objeto
         if area > 800:
             x, y, w, h = cv.boundingRect(contour)                   # coordenadas do objeto
-            aberto = False                                               # fecha o programa
+            aberto = False                                          # fecha o programa
 
     cv.imshow("result", frame)                                      # janela para exibição da câmera
 
