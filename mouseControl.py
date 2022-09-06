@@ -67,6 +67,7 @@ while aberto:
     # laço percorre o valor de contorno do objeto 
     for _, contour in enumerate(contours):
         area = cv.contourArea(contour)                              # área do objeto
+        # identificar objeto maior que a area inserida
         if area > 800:
             x, y, w, h = cv.boundingRect(contour)                   # coordenadas do objeto
 
@@ -82,6 +83,7 @@ while aberto:
     # laço percorre o valor de contorno do objeto 
     for _, contour in enumerate(contours):
         area = cv.contourArea(contour)                              # área do objeto
+        # identificar objeto maior que a area inserida
         if area > 800:
             x, y, w, h = cv.boundingRect(contour)                   # coordenadas do objeto
             gui.click(button='left')                                # clica no botão esquerdo do mouse
@@ -92,6 +94,7 @@ while aberto:
     # laço percorre o valor de contorno do objeto 
     for _, contour in enumerate(contours):
         area = cv.contourArea(contour)                              # área do objeto
+        # identificar objeto maior que a area inserida
         if area > 800:
             x, y, w, h = cv.boundingRect(contour)                   # coordenadas do objeto
             gui.click(button='right')                               # clica no botão direito do mouse
@@ -102,6 +105,7 @@ while aberto:
     # laço percorre o valor de contorno do objeto 
     for _, contour in enumerate(contours):
         area = cv.contourArea(contour)                              # área do objeto
+        # identificar objeto maior que a area inserida
         if area > 800:
             x, y, w, h = cv.boundingRect(contour)                   # coordenadas do objeto
             aberto = False                                          # fecha o programa
@@ -112,6 +116,6 @@ while aberto:
     if k == 27:                                                     # tecla ESCAPE para interromper o programa
         break
 
-# fecha as janelas/programa
+# fecha as janelas/câmera
 camera.release()
 cv.destroyAllWindows()
